@@ -23,6 +23,48 @@
             transform: translateX(9%);
          }
       }
+
+      /* Brush Animation Styles */
+      .brush-container {
+         position: relative;
+         width: 100%;
+         display: block;
+      }
+      .brush-svg {
+         width: 100%;
+         height: auto;
+         display: block;
+      }
+      .drawPath {
+          /* Initial state handled by JS, but good to have defaults */
+          fill: none;
+          stroke: white;
+          stroke-width: 150;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+      }
+      
+      /* Scroll Down Animation */
+      @keyframes bounce {
+         0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+         40% {transform: translateY(-10px);}
+         60% {transform: translateY(-5px);}
+      }
+      .animate-bounce {
+         animation: bounce 2s infinite;
+      }
+
+      /* Text Reveal Setup */
+      .caption > * {
+         opacity: 0; /* Hidden initially, JS will reveal */
+         transform: translateY(30px);
+      }
+      
+      /* Image Parallax Base */
+      .brush-svg image {
+          transform-origin: center center;
+          /* Will be controlled by GSAP */
+      }
    </style>
 </head>
 <body>
@@ -32,11 +74,33 @@
    <script src="partials/offcanvas-mobile.js"></script>
    <main>
 
+      <section class="dvh-50 d-flex align-items-center justify-content-center">
+         <p class="text-center">
+            <span class="d-block mb-3 fs-5 text-uppercase fw-bold text-secondary">Scroll Down</span>
+            <svg class="animate-bounce text-secondary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="32" height="32"><path fill="currentColor" d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+         </p>
+      </section>
+
       <section class="py-5">
          <div class="py-lg-5">
             <div class="section-header">
                <div class="container-fluid">
-                  <img src="img/about-us-sketch.png" alt="" loading="lazy" class="w-100 img-fluid">
+                   <div class="brush-container">
+                       <svg class="brush-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                           <defs>
+                               <mask id="brushMask1">
+                                   <path class="drawPath" d="M149.3,385.3c80.9-72.6,141.6-121.7,150.3-113.5c16.7,15.7-169,235.8-155.9,247.5
+                                   c25.7,22.9,414.8-344.3,430.4-328.3c13.7,14-277.5,307.8-258.5,328.3c22.8,24.6,469.3-364.7,492.5-339.7
+                                   c20,21.6-297.9,331.5-274.4,357.8c28.3,31.6,519.3-382.7,549.4-349.5C1109,216.3,777.9,552.3,791,565.4
+                                   c14.3,14.2,413.1-378.2,434.8-357.9c24.2,22.7-445.4,536.6-416.6,564.8c32.4,31.7,668.6-576.2,685-559.2
+                                   c16.6,17.1-617.2,645.4-595.6,668.3c21.3,22.5,662.5-556.6,680.9-536.9c16.6,17.9-497.3,507.6-471.1,536.9
+                                   c24.3,27.2,492.6-366.2,517.3-338.3c21.4,24.3-310.2,347.9-299.2,359.3c11.1,11.4,355.7-310,370.5-295
+                                   c11.6,11.8-193.5,218-174.8,239.1c12.1,13.5,113-54.4,255.8-162.2" />
+                               </mask>
+                           </defs>
+                           <image xlink:href="img/about-us-sketch.png" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" mask="url(#brushMask1)" />
+                       </svg>
+                   </div>
                </div>
             </div>
             <div class="section-body">
@@ -59,7 +123,22 @@
          <div class="py-lg-5">
             <div class="section-header">
                <div class="container-fluid">
-                  <img src="img/about-1971-sketch.png" alt="" loading="lazy" class="w-100 img-fluid">
+                   <div class="brush-container">
+                       <svg class="brush-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                           <defs>
+                               <mask id="brushMask2">
+                                   <path class="drawPath" d="M149.3,385.3c80.9-72.6,141.6-121.7,150.3-113.5c16.7,15.7-169,235.8-155.9,247.5
+                                   c25.7,22.9,414.8-344.3,430.4-328.3c13.7,14-277.5,307.8-258.5,328.3c22.8,24.6,469.3-364.7,492.5-339.7
+                                   c20,21.6-297.9,331.5-274.4,357.8c28.3,31.6,519.3-382.7,549.4-349.5C1109,216.3,777.9,552.3,791,565.4
+                                   c14.3,14.2,413.1-378.2,434.8-357.9c24.2,22.7-445.4,536.6-416.6,564.8c32.4,31.7,668.6-576.2,685-559.2
+                                   c16.6,17.1-617.2,645.4-595.6,668.3c21.3,22.5,662.5-556.6,680.9-536.9c16.6,17.9-497.3,507.6-471.1,536.9
+                                   c24.3,27.2,492.6-366.2,517.3-338.3c21.4,24.3-310.2,347.9-299.2,359.3c11.1,11.4,355.7-310,370.5-295
+                                   c11.6,11.8-193.5,218-174.8,239.1c12.1,13.5,113-54.4,255.8-162.2" />
+                               </mask>
+                           </defs>
+                           <image xlink:href="img/about-1971-sketch.png" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" mask="url(#brushMask2)" />
+                       </svg>
+                   </div>
                </div>
             </div>
             <div class="section-body">
@@ -82,7 +161,22 @@
          <div class="py-lg-5">
             <div class="section-header">
                <div class="container-fluid">
-                  <img src="img/about-1977-sketch.png" alt="" loading="lazy" class="w-100 img-fluid">
+                   <div class="brush-container">
+                       <svg class="brush-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                           <defs>
+                               <mask id="brushMask3">
+                                   <path class="drawPath" d="M149.3,385.3c80.9-72.6,141.6-121.7,150.3-113.5c16.7,15.7-169,235.8-155.9,247.5
+                                   c25.7,22.9,414.8-344.3,430.4-328.3c13.7,14-277.5,307.8-258.5,328.3c22.8,24.6,469.3-364.7,492.5-339.7
+                                   c20,21.6-297.9,331.5-274.4,357.8c28.3,31.6,519.3-382.7,549.4-349.5C1109,216.3,777.9,552.3,791,565.4
+                                   c14.3,14.2,413.1-378.2,434.8-357.9c24.2,22.7-445.4,536.6-416.6,564.8c32.4,31.7,668.6-576.2,685-559.2
+                                   c16.6,17.1-617.2,645.4-595.6,668.3c21.3,22.5,662.5-556.6,680.9-536.9c16.6,17.9-497.3,507.6-471.1,536.9
+                                   c24.3,27.2,492.6-366.2,517.3-338.3c21.4,24.3-310.2,347.9-299.2,359.3c11.1,11.4,355.7-310,370.5-295
+                                   c11.6,11.8-193.5,218-174.8,239.1c12.1,13.5,113-54.4,255.8-162.2" />
+                               </mask>
+                           </defs>
+                           <image xlink:href="img/about-1977-sketch.png" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" mask="url(#brushMask3)" />
+                       </svg>
+                   </div>
                </div>
             </div>
             <div class="section-body">
@@ -105,7 +199,22 @@
          <div class="py-lg-5">
             <div class="section-header">
                <div class="container-fluid">
-                  <img src="img/about-1996-sketch.png" alt="" loading="lazy" class="w-100 img-fluid">
+                   <div class="brush-container">
+                       <svg class="brush-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                           <defs>
+                               <mask id="brushMask4">
+                                   <path class="drawPath" d="M149.3,385.3c80.9-72.6,141.6-121.7,150.3-113.5c16.7,15.7-169,235.8-155.9,247.5
+                                   c25.7,22.9,414.8-344.3,430.4-328.3c13.7,14-277.5,307.8-258.5,328.3c22.8,24.6,469.3-364.7,492.5-339.7
+                                   c20,21.6-297.9,331.5-274.4,357.8c28.3,31.6,519.3-382.7,549.4-349.5C1109,216.3,777.9,552.3,791,565.4
+                                   c14.3,14.2,413.1-378.2,434.8-357.9c24.2,22.7-445.4,536.6-416.6,564.8c32.4,31.7,668.6-576.2,685-559.2
+                                   c16.6,17.1-617.2,645.4-595.6,668.3c21.3,22.5,662.5-556.6,680.9-536.9c16.6,17.9-497.3,507.6-471.1,536.9
+                                   c24.3,27.2,492.6-366.2,517.3-338.3c21.4,24.3-310.2,347.9-299.2,359.3c11.1,11.4,355.7-310,370.5-295
+                                   c11.6,11.8-193.5,218-174.8,239.1c12.1,13.5,113-54.4,255.8-162.2" />
+                               </mask>
+                           </defs>
+                           <image xlink:href="img/about-1996-sketch.png" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" mask="url(#brushMask4)" />
+                       </svg>
+                   </div>
                </div>
             </div>
             <div class="section-body">
@@ -128,7 +237,22 @@
          <div class="py-lg-5">
             <div class="section-header">
                <div class="container-fluid">
-                  <img src="img/about-2000-sketch.png" alt="" loading="lazy" class="w-100 img-fluid">
+                   <div class="brush-container">
+                       <svg class="brush-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                           <defs>
+                               <mask id="brushMask5">
+                                   <path class="drawPath" d="M149.3,385.3c80.9-72.6,141.6-121.7,150.3-113.5c16.7,15.7-169,235.8-155.9,247.5
+                                   c25.7,22.9,414.8-344.3,430.4-328.3c13.7,14-277.5,307.8-258.5,328.3c22.8,24.6,469.3-364.7,492.5-339.7
+                                   c20,21.6-297.9,331.5-274.4,357.8c28.3,31.6,519.3-382.7,549.4-349.5C1109,216.3,777.9,552.3,791,565.4
+                                   c14.3,14.2,413.1-378.2,434.8-357.9c24.2,22.7-445.4,536.6-416.6,564.8c32.4,31.7,668.6-576.2,685-559.2
+                                   c16.6,17.1-617.2,645.4-595.6,668.3c21.3,22.5,662.5-556.6,680.9-536.9c16.6,17.9-497.3,507.6-471.1,536.9
+                                   c24.3,27.2,492.6-366.2,517.3-338.3c21.4,24.3-310.2,347.9-299.2,359.3c11.1,11.4,355.7-310,370.5-295
+                                   c11.6,11.8-193.5,218-174.8,239.1c12.1,13.5,113-54.4,255.8-162.2" />
+                               </mask>
+                           </defs>
+                           <image xlink:href="img/about-2000-sketch.png" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" mask="url(#brushMask5)" />
+                       </svg>
+                   </div>
                </div>
             </div>
             <div class="section-body">
@@ -151,7 +275,22 @@
          <div class="py-lg-5">
             <div class="section-header">
                <div class="container-fluid">
-                  <img src="img/about-2018-sketch.png" alt="" loading="lazy" class="w-100 img-fluid">
+                   <div class="brush-container">
+                       <svg class="brush-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                           <defs>
+                               <mask id="brushMask6">
+                                   <path class="drawPath" d="M149.3,385.3c80.9-72.6,141.6-121.7,150.3-113.5c16.7,15.7-169,235.8-155.9,247.5
+                                   c25.7,22.9,414.8-344.3,430.4-328.3c13.7,14-277.5,307.8-258.5,328.3c22.8,24.6,469.3-364.7,492.5-339.7
+                                   c20,21.6-297.9,331.5-274.4,357.8c28.3,31.6,519.3-382.7,549.4-349.5C1109,216.3,777.9,552.3,791,565.4
+                                   c14.3,14.2,413.1-378.2,434.8-357.9c24.2,22.7-445.4,536.6-416.6,564.8c32.4,31.7,668.6-576.2,685-559.2
+                                   c16.6,17.1-617.2,645.4-595.6,668.3c21.3,22.5,662.5-556.6,680.9-536.9c16.6,17.9-497.3,507.6-471.1,536.9
+                                   c24.3,27.2,492.6-366.2,517.3-338.3c21.4,24.3-310.2,347.9-299.2,359.3c11.1,11.4,355.7-310,370.5-295
+                                   c11.6,11.8-193.5,218-174.8,239.1c12.1,13.5,113-54.4,255.8-162.2" />
+                               </mask>
+                           </defs>
+                           <image xlink:href="img/about-2018-sketch.png" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" mask="url(#brushMask6)" />
+                       </svg>
+                   </div>
                </div>
             </div>
             <div class="section-body">
@@ -174,7 +313,22 @@
          <div class="py-lg-5">
             <div class="section-header">
                <div class="container-fluid">
-                  <img src="img/about-vision-mission-sketch.png" alt="" loading="lazy" class="w-100 img-fluid">
+                   <div class="brush-container">
+                       <svg class="brush-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                           <defs>
+                               <mask id="brushMask7">
+                                   <path class="drawPath" d="M149.3,385.3c80.9-72.6,141.6-121.7,150.3-113.5c16.7,15.7-169,235.8-155.9,247.5
+                                   c25.7,22.9,414.8-344.3,430.4-328.3c13.7,14-277.5,307.8-258.5,328.3c22.8,24.6,469.3-364.7,492.5-339.7
+                                   c20,21.6-297.9,331.5-274.4,357.8c28.3,31.6,519.3-382.7,549.4-349.5C1109,216.3,777.9,552.3,791,565.4
+                                   c14.3,14.2,413.1-378.2,434.8-357.9c24.2,22.7-445.4,536.6-416.6,564.8c32.4,31.7,668.6-576.2,685-559.2
+                                   c16.6,17.1-617.2,645.4-595.6,668.3c21.3,22.5,662.5-556.6,680.9-536.9c16.6,17.9-497.3,507.6-471.1,536.9
+                                   c24.3,27.2,492.6-366.2,517.3-338.3c21.4,24.3-310.2,347.9-299.2,359.3c11.1,11.4,355.7-310,370.5-295
+                                   c11.6,11.8-193.5,218-174.8,239.1c12.1,13.5,113-54.4,255.8-162.2" />
+                               </mask>
+                           </defs>
+                           <image xlink:href="img/about-vision-mission-sketch.png" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" mask="url(#brushMask7)" />
+                       </svg>
+                   </div>
                </div>
             </div>
             <div class="section-body">
@@ -206,7 +360,22 @@
          <div class="py-lg-5">
             <div class="section-header">
                <div class="container-fluid">
-                  <img src="img/about-factory-sketch.png" alt="" loading="lazy" class="w-100 img-fluid">
+                   <div class="brush-container">
+                       <svg class="brush-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                           <defs>
+                               <mask id="brushMask8">
+                                   <path class="drawPath" d="M149.3,385.3c80.9-72.6,141.6-121.7,150.3-113.5c16.7,15.7-169,235.8-155.9,247.5
+                                   c25.7,22.9,414.8-344.3,430.4-328.3c13.7,14-277.5,307.8-258.5,328.3c22.8,24.6,469.3-364.7,492.5-339.7
+                                   c20,21.6-297.9,331.5-274.4,357.8c28.3,31.6,519.3-382.7,549.4-349.5C1109,216.3,777.9,552.3,791,565.4
+                                   c14.3,14.2,413.1-378.2,434.8-357.9c24.2,22.7-445.4,536.6-416.6,564.8c32.4,31.7,668.6-576.2,685-559.2
+                                   c16.6,17.1-617.2,645.4-595.6,668.3c21.3,22.5,662.5-556.6,680.9-536.9c16.6,17.9-497.3,507.6-471.1,536.9
+                                   c24.3,27.2,492.6-366.2,517.3-338.3c21.4,24.3-310.2,347.9-299.2,359.3c11.1,11.4,355.7-310,370.5-295
+                                   c11.6,11.8-193.5,218-174.8,239.1c12.1,13.5,113-54.4,255.8-162.2" />
+                               </mask>
+                           </defs>
+                           <image xlink:href="img/about-factory-sketch.png" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" mask="url(#brushMask8)" />
+                       </svg>
+                   </div>
                </div>
             </div>
             <div class="section-body">
@@ -292,7 +461,22 @@
          <div class="py-lg-5">
             <div class="section-header">
                <div class="container-fluid">
-                  <img src="img/about-factory-sketch.png" alt="" loading="lazy" class="w-100 img-fluid">
+                   <div class="brush-container">
+                       <svg class="brush-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                           <defs>
+                               <mask id="brushMask9">
+                                   <path class="drawPath" d="M149.3,385.3c80.9-72.6,141.6-121.7,150.3-113.5c16.7,15.7-169,235.8-155.9,247.5
+                                   c25.7,22.9,414.8-344.3,430.4-328.3c13.7,14-277.5,307.8-258.5,328.3c22.8,24.6,469.3-364.7,492.5-339.7
+                                   c20,21.6-297.9,331.5-274.4,357.8c28.3,31.6,519.3-382.7,549.4-349.5C1109,216.3,777.9,552.3,791,565.4
+                                   c14.3,14.2,413.1-378.2,434.8-357.9c24.2,22.7-445.4,536.6-416.6,564.8c32.4,31.7,668.6-576.2,685-559.2
+                                   c16.6,17.1-617.2,645.4-595.6,668.3c21.3,22.5,662.5-556.6,680.9-536.9c16.6,17.9-497.3,507.6-471.1,536.9
+                                   c24.3,27.2,492.6-366.2,517.3-338.3c21.4,24.3-310.2,347.9-299.2,359.3c11.1,11.4,355.7-310,370.5-295
+                                   c11.6,11.8-193.5,218-174.8,239.1c12.1,13.5,113-54.4,255.8-162.2" />
+                               </mask>
+                           </defs>
+                           <image xlink:href="img/about-factory-sketch.png" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" mask="url(#brushMask9)" />
+                       </svg>
+                   </div>
                </div>
             </div>
             <div class="section-body">
@@ -359,6 +543,84 @@
    <script>
       $(document).ready(function () {
          $('nav[aria-label="primary navigation (mobile)"]>ul>li:nth-child(1)>a, nav[aria-label="primary navigation (mobile)"]>ul>li:nth-of-type(1)>a, nav[aria-label="primary navigation (desktop)"]>ul>li:nth-child(1)>a, nav[aria-label="primary navigation (desktop)"]>ul>li:nth-of-type(1)>a').addClass('active');
+         
+         if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+               gsap.registerPlugin(ScrollTrigger);
+
+               // Find all sections that have our structure
+               // We assume the structure: Section -> Header(Brush) + Body(Caption)
+               const sections = document.querySelectorAll("main > section.py-5");
+
+               sections.forEach((section, index) => {
+                   const brushContainer = section.querySelector(".brush-container");
+                   const caption = section.querySelector(".caption");
+                   
+                   // 1. Brush & Parallax Animation
+                   if (brushContainer) {
+                       const path = brushContainer.querySelector(".drawPath");
+                       const image = brushContainer.querySelector("image");
+                       
+                       // Initialize Path
+                       if (path) {
+                           const length = path.getTotalLength();
+                           gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
+
+                           // Draw the brush stroke
+                           gsap.to(path, {
+                               strokeDashoffset: 0,
+                               ease: "none",
+                               scrollTrigger: {
+                                   trigger: section, // Trigger based on the whole section
+                                   start: "top 80%",
+                                   end: "center center",
+                                   scrub: 1.5, // Creating a smoother scrub effect
+                               }
+                           });
+                       }
+                       
+                       // Parallax Effect for Image
+                       // Move the image slightly down/up as we scroll to create depth
+                       if (image) {
+                           gsap.fromTo(image, 
+                               { yPercent: -10, scale: 1.1 }, 
+                               { 
+                                   yPercent: 10, 
+                                   scale: 1.0,
+                                   ease: "none",
+                                   scrollTrigger: {
+                                       trigger: section,
+                                       start: "top bottom", 
+                                       end: "bottom top", 
+                                       scrub: true
+                                   }
+                               }
+                           );
+                       }
+                   }
+
+                   // 2. Text Reveal Animation
+                   if (caption) {
+                       // Select direct children of caption (p, div, etc)
+                       const children = caption.children;
+                       
+                       gsap.to(children, {
+                           y: 0,
+                           opacity: 1,
+                           duration: 1,
+                           stagger: 0.2, // Animate one by one
+                           ease: "power3.out",
+                           scrollTrigger: {
+                               trigger: caption,
+                               start: "top 85%", // Start fading in when caption top hits 85% of viewport
+                               toggleActions: "play none none reverse" // Play on enter, reverse on leave up
+                           }
+                       });
+                   }
+               });
+
+           } else {
+               console.error("GSAP or ScrollTrigger not loaded.");
+           }
       });
    </script>
 </body>

@@ -5,15 +5,45 @@
    <title>INDRACO &bull; Produk</title>
    <!-- <style>* {outline: solid 1px green;}</style> -->
    <style>
+      .brand-img img {
+         transition: .5s ease;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         transition: .5s ease;
+         pointer-events: none !important;
+      }
+      
       @media (min-width: 992px) {
-         .dropdown-menu {
-            padding: .5rem 1rem;
-            top: 85%;
+         .img-product {
+            transform: translate(-35%, -50%) !important;
             opacity: 0;
-            transition: .3s ease;
-            pointer-events: none;
          }
          
+         .dropdown:hover .img-product,
+         .dropdown:focus .img-product {
+            transform: translate(-50%, -50%) !important;
+            opacity: 1;
+         }
+         
+         .img-logo {
+            opacity: 1;
+            transition-delay: .25s;
+         }
+         
+         .dropdown:hover .img-logo,
+         .dropdown:focus .img-logo {
+            transform: translate(-50%, -35%) !important;
+            opacity: 0;
+         }
+         
+         .dropdown-menu {
+            top: 75%;
+            opacity: 0;
+            pointer-events: none;
+            transition: .5s ease;
+         }
+
          .dropdown:hover .dropdown-menu,
          .dropdown:focus .dropdown-menu {
             top: 90%;
@@ -43,7 +73,7 @@
                      <div class="row py-5 row-gap-3 justify-content-center py-lg-0 justify-content-lg-around align-items-lg-center gx-lg-5">
                         <div class="col col-10 col-md-8 order-lg-2 col-lg-6 col-xl-5">
                            <div class="ratio ratio-1x1">
-                              <img src="img/product-banner-image.png" alt="" loading="lazy" class="object-fit-contain">
+                              <img src="img/product-banner-image.png" alt="" loading="lazy" class="object-fit-contain top-50 start-50 translate-middle">
                            </div>
                         </div>
                         <div class="col col-10 col-md-8 order-lg-1 col-lg-6 col-xl-5 text-light">
@@ -68,16 +98,17 @@
       </section>
 
       <section class="py-5">
-         <div class="container py-lg-5">
+         <div class="container py-lg-5" style="max-width: 1600px;">
             <p class="fs-1 fw-bold mb-5 text-center text-capitalize">produk kami</p>
-            <nav class="d-grid gap-5" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+            <nav aria-label="brand product navigation" class="d-grid gap-5" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
 
                <a href="#" class="text-reset text-decoration-none">
                   <div class="dropdown">
-                     <div class="ratio ratio-16x9 mb-3">
-                        <img src="img/logo-supresso.png" data-light="img/logo-supresso.png" data-dark="img/logo-supresso.png" alt="INDRACO Logo" loading="lazy" class="object-fit-contain top-50 start-50 translate-middle w-30 theme-image">
+                     <div class="ratio ratio-16x9 mb-3 brand-img">
+                        <img src="img/logo-supresso.png" data-light="img/logo-supresso.png" data-dark="img/logo-supresso.png" alt="" loading="lazy" class="object-fit-contain w-30 theme-image img-logo z-1">
+                        <img src="img/product-banner-image.png" alt="" loading="lazy" class="object-fit-contain img-product z-0 d-none d-lg-block">
                      </div>
-                     <div class="dropdown-menu d-block rounded-0 border-0">
+                     <div class="dropdown-menu d-block rounded-0 border-0 position-static position-lg-absolute p-lg-3">
                         <p class="fs-5 text-capitalize mb-3"><strong class="fw-bold">supresso</strong> | kopi</p>
                         <p class="fs-lg-small">
                            Dengan biji-biji kopi yang berasal dari timur hingga barat Indonesia, koleksi kopi single-origin Supresso menghasilkan profil rasa yang premium, mewah sekaligus unik. Dengan sepenuh hati, kami fokus menyajikan kopi kualitas tinggi untuk penikmat kopi di seluruh dunia dalam bentuk biji, bubuk, drip, dan kapsul. Nikmati pengalaman kopi Indonesia dalam kualitas dan kemurniannya, bersama Supresso.
@@ -88,10 +119,11 @@
 
                <a href="#" class="text-reset text-decoration-none">
                   <div class="dropdown">
-                     <div class="ratio ratio-16x9 mb-3">
-                        <img src="img/logo-balicafe.png" data-light="img/logo-balicafe.png" data-dark="img/logo-balicafe.png" alt="INDRACO Logo" loading="lazy" class="object-fit-contain top-50 start-50 translate-middle w-60 theme-image">
+                     <div class="ratio ratio-16x9 mb-3 brand-img">
+                        <img src="img/logo-balicafe.png" data-light="img/logo-balicafe.png" data-dark="img/logo-balicafe.png" alt="" loading="lazy" class="object-fit-contain w-60 theme-image img-logo z-1">
+                        <img src="img/product-banner-image.png" alt="" loading="lazy" class="object-fit-contain img-product z-0 d-none d-lg-block">
                      </div>
-                     <div class="dropdown-menu d-block rounded-0 border-0">
+                     <div class="dropdown-menu d-block rounded-0 border-0 position-static position-lg-absolute p-lg-3">
                         <p class="fs-5 text-capitalize mb-3"><strong class="fw-bold">BaliCafé</strong> | kopi bali</p>
                         <p class="fs-lg-small">
                            Diracik dari kopi Bali asli, nikmati hasil kreasi Balicafé kami, dan menyatulah dengan tradisi kopi pulau Bali yang magis.
@@ -102,10 +134,11 @@
 
                <a href="#" class="text-reset text-decoration-none">
                   <div class="dropdown">
-                     <div class="ratio ratio-16x9 mb-3">
-                        <img src="img/logo-ucafe.png" data-light="img/logo-ucafe.png" data-dark="img/logo-ucafe-invert.png" alt="INDRACO Logo" loading="lazy" class="object-fit-contain top-50 start-50 translate-middle w-40 theme-image">
+                     <div class="ratio ratio-16x9 mb-3 brand-img">
+                        <img src="img/logo-ucafe.png" data-light="img/logo-ucafe.png" data-dark="img/logo-ucafe-invert.png" alt="" loading="lazy" class="object-fit-contain w-40 theme-image img-logo z-1">
+                        <img src="img/product-banner-image.png" alt="" loading="lazy" class="object-fit-contain img-product z-0 d-none d-lg-block">
                      </div>
-                     <div class="dropdown-menu d-block rounded-0 border-0">
+                     <div class="dropdown-menu d-block rounded-0 border-0 position-static position-lg-absolute p-lg-3">
                         <p class="fs-5 text-capitalize mb-3"><strong class="fw-bold">UCAFÉ</strong> | kopi</p>
                         <p class="fs-lg-small">
                            UCAFÉ for “U”. Dirancang untuk menyatukan dunia peminum kopi dari berbagai latar, dengan ragam rasa dan aromanya, UCAFÉ terdepan menemani dirimu yang sesungguhnya, menjaga cita-cita, impian, dan juga kesukaanmu.
@@ -116,10 +149,11 @@
 
                <a href="#" class="text-reset text-decoration-none">
                   <div class="dropdown">
-                     <div class="ratio ratio-16x9 mb-3">
-                        <img src="img/logo-rasa-sayang.png" data-light="img/logo-rasa-sayang.png" data-dark="img/logo-rasa-sayang.png" alt="INDRACO Logo" loading="lazy" class="object-fit-contain top-50 start-50 translate-middle w-40 theme-image">
+                     <div class="ratio ratio-16x9 mb-3 brand-img">
+                        <img src="img/logo-rasa-sayang.png" data-light="img/logo-rasa-sayang.png" data-dark="img/logo-rasa-sayang.png" alt="" loading="lazy" class="object-fit-contain w-40 theme-image img-logo z-1">
+                        <img src="img/product-banner-image.png" alt="" loading="lazy" class="object-fit-contain img-product z-0 d-none d-lg-block">
                      </div>
-                     <div class="dropdown-menu d-block rounded-0 border-0">
+                     <div class="dropdown-menu d-block rounded-0 border-0 position-static position-lg-absolute p-lg-3">
                         <p class="fs-5 text-capitalize mb-3"><strong class="fw-bold">Rasa Sayang</strong> | kopi</p>
                         <p class="fs-lg-small">
                            Rasa sayang eh, Rasa sayang sayang eh ~ Diracik pada 1984 dengan rasa dan aroma nostalgia, Rasa sayang membawa penghormatan bagi kopi di masa lalu, sekaligus memupuk rasa nostalgia yang semakin hangat dengan teknik presisi yang lebih baru.
@@ -130,10 +164,11 @@
 
                <a href="#" class="text-reset text-decoration-none">
                   <div class="dropdown">
-                     <div class="ratio ratio-16x9 mb-3">
-                        <img src="img/logo-tugu-buaya.png" data-light="img/logo-tugu-buaya.png" data-dark="img/logo-tugu-buaya-invert.png" alt="INDRACO Logo" loading="lazy" class="object-fit-contain top-50 start-50 translate-middle w-50 theme-image">
+                     <div class="ratio ratio-16x9 mb-3 brand-img">
+                        <img src="img/logo-tugu-buaya.png" data-light="img/logo-tugu-buaya.png" data-dark="img/logo-tugu-buaya-invert.png" alt="" loading="lazy" class="object-fit-contain w-60 theme-image img-logo z-1">
+                        <img src="img/product-banner-image.png" alt="" loading="lazy" class="object-fit-contain img-product z-0 d-none d-lg-block">
                      </div>
-                     <div class="dropdown-menu d-block rounded-0 border-0">
+                     <div class="dropdown-menu d-block rounded-0 border-0 position-static position-lg-absolute p-lg-3">
                         <p class="fs-5 text-capitalize mb-3"><strong class="fw-bold">Tugu Buaya</strong> | kopi</p>
                         <p class="fs-lg-small">
                            Bercita rasa kuat serta tekstur tegas. Dikembangkan sejak 1977, Tugu Buaya memiliki rasa yang unik dengan karakter kopi yang diterima semua orang.
@@ -144,10 +179,11 @@
 
                <a href="#" class="text-reset text-decoration-none">
                   <div class="dropdown">
-                     <div class="ratio ratio-16x9 mb-3">
-                        <img src="img/logo-uang-emas.png" data-light="img/logo-uang-emas.png" data-dark="img/logo-uang-emas-invert.png" alt="INDRACO Logo" loading="lazy" class="object-fit-contain top-50 start-50 translate-middle w-30 theme-image">
+                     <div class="ratio ratio-16x9 mb-3 brand-img">
+                        <img src="img/logo-uang-emas.png" data-light="img/logo-uang-emas.png" data-dark="img/logo-uang-emas-invert.png" alt="" loading="lazy" class="object-fit-contain w-40 theme-image img-logo z-1">
+                        <img src="img/product-banner-image.png" alt="" loading="lazy" class="object-fit-contain img-product z-0 d-none d-lg-block">
                      </div>
-                     <div class="dropdown-menu d-block rounded-0 border-0">
+                     <div class="dropdown-menu d-block rounded-0 border-0 position-static position-lg-absolute p-lg-3">
                         <p class="fs-5 text-capitalize mb-3"><strong class="fw-bold">Uang Emas</strong> | kopi</p>
                         <p class="fs-lg-small">
                            Dibuat dari biji kopi pilihan, cobalah kopi asli dengan paduan metode pengolahan tradisional dan modern ini. Dari kreasi kopi hitam yang sesungguhnya, temukan nuansa kontemporer yang tiada duanya.
@@ -158,10 +194,11 @@
 
                <a href="#" class="text-reset text-decoration-none">
                   <div class="dropdown">
-                     <div class="ratio ratio-16x9 mb-3">
-                        <img src="img/logo-jaheku.png" data-light="img/logo-jaheku.png" data-dark="img/logo-jaheku.png" alt="INDRACO Logo" loading="lazy" class="object-fit-contain top-50 start-50 translate-middle w-40 theme-image">
+                     <div class="ratio ratio-16x9 mb-3 brand-img">
+                        <img src="img/logo-jaheku.png" data-light="img/logo-jaheku.png" data-dark="img/logo-jaheku.png" alt="" loading="lazy" class="object-fit-contain w-40 theme-image img-logo z-1">
+                        <img src="img/product-banner-image.png" alt="" loading="lazy" class="object-fit-contain img-product z-0 d-none d-lg-block">
                      </div>
-                     <div class="dropdown-menu d-block rounded-0 border-0">
+                     <div class="dropdown-menu d-block rounded-0 border-0 position-static position-lg-absolute p-lg-3">
                         <p class="fs-5 text-capitalize mb-3"><strong class="fw-bold">Jaheku</strong> | minuman jahe</p>
                         <p class="fs-lg-small">
                            Jaheku / definisi / “Jahe kesukaanku” dalam bahasa Indonesia. Merupakan bahan pangan yang familiar di banyak negara, Jaheku menyajikan segala manfaat dan kesegaran jahe kepada konsumen dalam bentuk minuman, dengan kombinasi rasa Jaheku Gula Aren, dan juga Jaheku Madu, memantapkan berbagai manfaat serta rasa unik jahe yang selalu disukai.
@@ -172,10 +209,11 @@
 
                <a href="#" class="text-reset text-decoration-none">
                   <div class="dropdown">
-                     <div class="ratio ratio-16x9 mb-3">
-                        <img src="img/logo-brochoco.png" data-light="img/logo-brochoco.png" data-dark="img/logo-brochoco.png" alt="INDRACO Logo" loading="lazy" class="object-fit-contain top-50 start-50 translate-middle w-40 theme-image">
+                     <div class="ratio ratio-16x9 mb-3 brand-img">
+                        <img src="img/logo-brochoco.png" data-light="img/logo-brochoco.png" data-dark="img/logo-brochoco.png" alt="" loading="lazy" class="object-fit-contain w-40 theme-image img-logo z-1">
+                        <img src="img/product-banner-image.png" alt="" loading="lazy" class="object-fit-contain img-product z-0 d-none d-lg-block">
                      </div>
-                     <div class="dropdown-menu d-block rounded-0 border-0">
+                     <div class="dropdown-menu d-block rounded-0 border-0 position-static position-lg-absolute p-lg-3">
                         <p class="fs-5 text-capitalize mb-3"><strong class="fw-bold">BROCHOCO</strong> | cokelat</p>
                         <p class="fs-lg-small">
                            Mau minuman coklat dengan berbagai rasa pilihan? BROCHOCO jawabannya! Isi hari-harimu dengan BROCHOCO, dengan rasa Original juga Choco Banana. Nikmati beragam rasa manisnya coklat dan lembutnya krim, berpadu seimbang dalam cita rasa yang menggoda. Favorit semua kalangan dan selalu jadi pilihan, dengan berbagai kreasi penyajian yang lezat.
@@ -186,10 +224,11 @@
 
                <a href="#" class="text-reset text-decoration-none">
                   <div class="dropdown">
-                     <div class="ratio ratio-16x9 mb-3">
-                        <img src="img/logo-intirasa.png" data-light="img/logo-intirasa.png" data-dark="img/logo-intirasa.png" alt="INDRACO Logo" loading="lazy" class="object-fit-contain top-50 start-50 translate-middle w-50 theme-image">
+                     <div class="ratio ratio-16x9 mb-3 brand-img">
+                        <img src="img/logo-intirasa.png" data-light="img/logo-intirasa.png" data-dark="img/logo-intirasa.png" alt="" loading="lazy" class="object-fit-contain w-60 theme-image img-logo z-1">
+                        <img src="img/product-banner-image.png" alt="" loading="lazy" class="object-fit-contain img-product z-0 d-none d-lg-block">
                      </div>
-                     <div class="dropdown-menu d-block rounded-0 border-0">
+                     <div class="dropdown-menu d-block rounded-0 border-0 position-static position-lg-absolute p-lg-3">
                         <p class="fs-5 text-capitalize mb-3"><strong class="fw-bold">intiRasa</strong> | lezat!!!</p>
                         <p class="fs-lg-small">
                            Santan bubuk intiRasa merupakan versi praktis dari cita rasa gurih ala santan kelapa yang sesungguhnya, berkualitas dan disesuaikan dengan kebutuhan dapur anda yang serba cepat.
@@ -200,10 +239,11 @@
 
                <a href="#" class="text-reset text-decoration-none">
                   <div class="dropdown">
-                     <div class="ratio ratio-16x9 mb-3">
-                        <img src="img/logo-haocafe.png" data-light="img/logo-haocafe.png" data-dark="img/logo-haocafe.png" alt="INDRACO Logo" loading="lazy" class="object-fit-contain top-50 start-50 translate-middle w-40 theme-image">
+                     <div class="ratio ratio-16x9 mb-3 brand-img">
+                        <img src="img/logo-haocafe.png" data-light="img/logo-haocafe.png" data-dark="img/logo-haocafe.png" alt="" loading="lazy" class="object-fit-contain w-40 theme-image img-logo z-1">
+                        <img src="img/product-banner-image.png" alt="" loading="lazy" class="object-fit-contain img-product z-0 d-none d-lg-block">
                      </div>
-                     <div class="dropdown-menu d-block rounded-0 border-0">
+                     <div class="dropdown-menu d-block rounded-0 border-0 position-static position-lg-absolute p-lg-3">
                         <p class="fs-5 text-capitalize mb-3"><strong class="fw-bold">Hao Cafe</strong> | krimer & gula</p>
                         <p class="fs-lg-small">
                            Kopi yang dibuat secara sempurna dengan tekstur kuat yang mengeluarkan aroma khas dan rasa yang mantap.

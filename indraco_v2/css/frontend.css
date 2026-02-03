@@ -1,0 +1,96 @@
+:root,
+[data-bs-theme=light] {
+   --bs-secondary-bg: #f1f1f1;
+   --bs-secondary-bg-rgb: 241, 241, 241;
+   --bs-tertiary-bg: #e6e7e8;
+   --bs-tertiary-bg-rgb: 230, 231, 232;
+   --bs-secondary: #333333;
+   --bs-secondary-rgb: 51, 51, 51;
+   --bs-dark: #1a1a1a;
+   --bs-dark-rgb: 26, 26, 26;
+   --bs-primary: #01645b;
+   --bs-primary-rgb: 1, 100, 91;
+   --bs-primary-subtle: #01534c;
+   --bs-primary-subtle-rgb: 1, 83, 76;
+}
+[data-bs-theme=dark] {
+   --bs-body-bg: #262626;
+   --bs-body-bg-rgb: 38, 38, 38;
+   --bs-secondary-bg: #1a1a1a;
+   --bs-secondary-bg-rgb: 26, 26, 26;
+   --bs-tertiary-bg: #333333;
+   --bs-tertiary-bg-rgb: 51, 51, 51;
+}
+
+
+
+html, body {
+   font-size: small;
+}
+
+body {
+   min-height: 100dvh;
+   display: flex;
+   flex-direction: column;
+}
+
+body>main {
+   flex-grow: 1;
+}
+
+nav[aria-label="social media navigation"] > a {
+  width: 2rem;
+  height: 2rem;
+}
+
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+   --bs-gutter-x: 2.5rem;
+}
+
+.navbar-brand img {
+   width: 100%;
+   height: auto;
+   max-width: 10rem;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--bs-primary);
+  --bs-btn-border-color: var(--bs-primary);
+  --bs-btn-hover-bg: var(--bs-primary-subtle);
+  --bs-btn-hover-border-color: var(--bs-primary-subtle);
+  --bs-btn-active-bg: var(--bs-primary-subtle);
+  --bs-btn-active-border-color: var(--bs-primary-subtle);
+  --bs-btn-disabled-bg: var(--bs-primary);
+  --bs-btn-disabled-border-color: var(--bs-primary);
+}
+
+nav[aria-label="primary navigation (desktop)"] .active,
+nav[aria-label="primary navigation (mobile)"] .active {
+   font-family: 'HelveticaNeue Bold';
+}
+
+
+
+@media (min-width: 576px) {
+   html, body {
+      font-size: 1em;
+   }
+
+   .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+      width: 94%;
+      max-width: 1320px;
+   }
+}
+
+
+
+@media (min-width: 992px) {
+   body>footer address {
+      max-width: 14.5em;
+   }
+   
+   .navbar-brand img {
+      max-width: 12rem;
+   }
+}
